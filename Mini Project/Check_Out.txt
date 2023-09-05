@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+namespace WebApplication6
+{
+    public partial class Check_Out__Web_form : System.Web.UI.Page
+    {
+
+        SqlConnection con;
+        SqlCommand cmdCheckIn, cmdCat, cmdRno,;
+        SqlDataReader dr, Dr;
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            con = new SqlConnection(@"Data Source= 860B8FD10BD8551;Initial Catalog=HotelDb; User Id=sa ;Password=pass@word1;");
+            con.Open();
+
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int id=Convert.ToInt32(TextBox1.Text);
+            int cid = Convert.ToInt32(TextBox2.Text);
+            DateTime Calender1 = Convert.ToDoubleTime(TextBox7.text);
+          
+           
+
+
+
+            }con.Close();
+
+        }
+    }
+}

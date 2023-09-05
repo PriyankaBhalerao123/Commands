@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+
+namespace WebApplication6
+{
+    public partial class WebForm1_room_category : System.Web.UI.Page
+    {
+        SqlConnection con;
+        SqlCommand cmd;
+       
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            con = new SqlConnection(@"Data Source= 860B8FD10BD8551;Initial Catalog=HotelDb; User Id=sa ;Password=pass@word1;");
+            con.Open();
+            con.Close();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int cat_Id;
+            string Cat_Name;
+           cat_Id = Convert.ToInt32(TextBox1.Text);
+           Cat_Name =TextBox2.Text;
+            String query="insert into Room_Catagory values(" +cat_Id+ ",'" +Cat_Name + "')";
+            cmd = new SqlCommand(query, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+                
+
+        }
+
+        
+    }
+}
